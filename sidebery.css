@@ -1,0 +1,229 @@
+#root.root {
+	--tabs-height: 33px;
+	--tabs-pinned-height: 44px;
+	--tabs-margin: 6px;
+	--tabs-indent: 18px;
+	--tabs-close-btn-margin: 5px;
+	--tabs-inner-gap: 10px;
+	--general-border-radius: 6px;
+	--tabs-color-layer-opacity: 0.25;
+	--tabs-activated-bg: rgba(255, 255, 255, 0.12);
+}
+
+#root .popup-container {
+	background-color: transparent;
+}
+
+#root .hidden-panels-popup-layer:before {
+	background-color: transparent;
+}
+
+/* PINNED TABS */
+
+#root:not(:hover) .Tab {
+	--tabs-indent: 0px;
+}
+
+.Tab[data-pin="true"] .body {
+	box-shadow: 0px 2px 1px #00000000;
+	background: #f2f2f220;
+	color: #ffffff60;
+}
+
+.Tab[data-pin="true"][data-active="true"] {
+	background-color: #ffffff40;
+	border-radius: calc(var(--general-border-radius) + 2px);
+}
+
+.Tab[data-discarded="true"]>.body>.fav {
+	opacity: 1;
+}
+
+#root .TabsPanel .PinnedTabsBar {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0;
+	padding: 0;
+}
+
+.PinnedTabsBar .tab-wrapper {
+	flex-grow: 1;
+	min-width: 55px;
+	--tabs-pinned-width: auto;
+}
+
+#root:not(:hover) .Tab {
+	--tabs-indent: 0px;
+}
+
+.Tab:hover .title {
+	margin-left: 8px;
+}
+
+/* GENERAL */
+
+.AnimatedTabList .Tab {
+	width: 100%;
+}
+
+.AnimatedTabList .Tab .title,
+.TabsPanel .AnimatedTabList .new-tab-btn:after {
+	font-size: 0.85rem;
+}
+
+body {
+	height: 100vh;
+	overflow: hidden;
+}
+
+.AnimatedTabList .bottom-space {
+	display: none;
+}
+
+#root.root {
+	--tabs-font: 0.9375rem JetBrainsMono Nerd Font Mono, Noto Sans Mono CJK SC;
+}
+
+/* SEPARATOR */
+
+#root .top-shadow,
+#root .bottom-shadow {
+	border: #f2f2f220 1px solid;
+	box-shadow: none;
+	height: 1px;
+	border-radius: var(--general-border-radius);
+}
+
+#root .top-shadow {
+	top: 0;
+}
+
+#root .bottom-shadow {
+	bottom: 0;
+}
+
+.Tab .close-icon {
+	height: 24px;
+	width: 24px;
+	top: calc(50% - 12px);
+	left: calc(50% - 12px);
+}
+
+/* Smoothen masking for overflowed tab title. */
+.Tab .title {
+	background: linear-gradient(90deg, var(--tabs-normal-fg) 80%, #f1f1f100 99%);
+	background-clip: text;
+	color: transparent;
+}
+
+.TabsPanel .Tab {
+	margin: 0;
+}
+
+.TabsPanel {
+	display: flex;
+	gap: 12px;
+}
+
+/* NEW TAB BUTTON*/
+
+.TabsPanel .new-tab-btns {
+	position: relative;
+}
+
+.TabsPanel .new-tab-btn {
+	margin: calc(var(--tabs-margin) * 0.5) 0;
+	--ntb-btn-height: 37px;
+}
+
+.TabsPanel .new-tab-btn:first-of-type {
+	justify-content: left;
+	padding-left: calc(var(--tabs-inner-gap));
+	margin: calc(var(--tabs-margin) * 0.5) 0;
+	--ntb-btn-height: 37px;
+}
+
+.TabsPanel .new-tab-btn:first-of-type>svg,
+.TabsPanel .new-tab-btn:first-of-type>img {
+	fill: transparent;
+	background-color: var(--nav-btn-fg);
+	opacity: 40%;
+	width: 17px;
+	height: 17px;
+	scale: 0.9;
+	mask: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgZmlsbD0ibm9uZSIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIiB3aWR0aD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEwIDIuNUMxMCAyLjIyMzg2IDkuNzc2MTQgMiA5LjUgMkM5LjIyMzg2IDIgOSAyLjIyMzg2IDkgMi41VjlIMi41QzIuMjIzODYgOSAyIDkuMjIzODYgMiA5LjVDMiA5Ljc3NjE0IDIuMjIzODYgMTAgMi41IDEwSDlWMTYuNUM5IDE2Ljc3NjEgOS4yMjM4NiAxNyA5LjUgMTdDOS43NzYxNCAxNyAxMCAxNi43NzYxIDEwIDE2LjVWMTBIMTYuNUMxNi43NzYxIDEwIDE3IDkuNzc2MTQgMTcgOS41QzE3IDkuMjIzODYgMTYuNzc2MSA5IDE2LjUgOUgxMFYyLjVaIiBmaWxsPSIjMjEyMTIxIi8+PC9zdmc+");
+}
+
+.TabsPanel .new-tab-btn:first-of-type>svg.-badge,
+.TabsPanel .new-tab-btn:first-of-type>img.-badge {
+	width: 0;
+	height: 0;
+}
+
+.TabsPanel .new-tab-btn:first-of-type:after {
+	justify-content: left;
+	content: "New Tab";
+	font: var(--tabs-font);
+	padding-left: calc(var(--tabs-inner-gap) + var(--tabs-margin) + 12px);
+	color: var(--nav-btn-fg);
+	opacity: 40%;
+}
+
+/* NAVBAR */
+
+.NavigationBar {
+	height: 41px !important;
+	padding: 4.5px 0px 0px 4.5px !important;
+	/*background-color: # !important;*/
+	margin-bottom: 5px;
+}
+
+.NavigationBar .panel-btn:hover {
+	border-radius: 3px !important;
+	background-color: var(--tabs-bg-hover) !important;
+}
+
+.NavigationBar .panel-btn[data-active="true"] {
+	border-radius: 3px !important;
+	background-color: var(--bg) !important;
+}
+
+.NavigationBar .panel-btn[data-active="true"]:hover {
+	border-radius: 3px !important;
+	background-color: var(--tabs-bg-hover) !important;
+}
+
+.NavigationBar .panel-btn>svg,
+.NavigationBar .panel-btn>img {
+	fill: var(--panel-btn) !important;
+}
+
+/* MEDIA */
+
+@media (max-width: 50px) {
+	.Tab[data-lvl]>div.lvl-wrapper {
+		right: -2px;
+	}
+
+	.Tab .fav {
+		z-index: 1;
+	}
+
+	.Tab .audio {
+		z-index: 1;
+		margin-left: -20px;
+		height: 26px;
+	}
+
+	.Tab .title {
+		display: none;
+	}
+
+	.PinnedTab {
+		margin-left: 5px;
+	}
+
+	.NavigationBar .settings-btn {
+		display: none;
+	}
+}

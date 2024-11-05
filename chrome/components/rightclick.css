@@ -1,0 +1,6 @@
+/* Hide unnecessary right-click content */
+#context-savepage,
+#context-pocket,
+#context-inspect-ally {
+    display: none !important;
+}
